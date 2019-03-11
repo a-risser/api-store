@@ -1,5 +1,7 @@
 FROM python:3
-ADD __main__.py
+ADD __main__.py /
+COPY requirements.txt /opt/app/requirements.txt
+WORKDIR /opt/app
 RUN pip install -r requirements.txt
-CMD [ "python", "python \_\_main\_\_.py -H mon_serveur_mongo -P 27017 -D ma_database_mongo -u mon_user_mongo -p mon_password_mongo -A mon_api_bracelet
-" ]
+COPY . /opt/app
+CMD [ "python \_\_main\_\_.py -H mon_serveur_mongo -P 27017 -D ma_database_mongo -u root -p root -A mon_api_bracelet" ]
