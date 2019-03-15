@@ -1,4 +1,5 @@
 FROM python:3
+ADD _version.py /
 ADD __main__.py /
 COPY requirements.txt /requirements.txt
 WORKDIR /
